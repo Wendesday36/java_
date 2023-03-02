@@ -4,48 +4,58 @@
  */
 package Ciklusok;
 
+import java.util.Scanner;
+
 /**
  *
  * @author berta
  */
 public class Szamok {
 
+    private static Scanner sc = new Scanner(System.in);
+
     public static void main(String[] args) {
-        szamokAlap();
+//        szamokAlap();
         beKeres();
     }
 
-    private static void szamokAlap() {
-        for (int x = 2; x < 3; x++) {
+//    private static void szamokAlap() {
+//        for (int x = 2; x < 3; x++) {
+//            for (int i = 2; i < 4; i++) {
+//                for (int n = 2; n < 5; n++) {
+//                    System.out.println(x + " " + i + " " + n);
+//
+//                }
+//
+//            }
+//        }
+//
+//    }
+    private static void beKeres() {
+        System.out.print("Ismétléssel?(i/n):");
+        boolean ismetlessel = sc.next().equals("i");
+
+        int db = 0, ismnlkdb = 0;
+        for (int x = 2; x < 4; x++) {
             for (int i = 2; i < 4; i++) {
-                for (int n = 2; n < 5; n++) {
-                    System.out.println(x + " " + i + " " + n);
+                for (int n = 2; n <= 4; n++) {
+                    if (ismetlessel) {
 
-                }
-
-            }
-        }
-
-    }
-
-    private static boolean beKeres() {
-        System.out.println("Ismétléssel vagy ismétlés nélkül szeretnéd?");
-        boolean False;
-        if (Boolean.FALSE) {
-            szamokAlap();
-        } 
-        else if(Boolean.TRUE) {
-            for (int x = 2; x < 3; x++) {
-                for (int i = 3; i < 4; i++) {
-                    for (int n = 2; n < 5; n++) {
                         System.out.println(x + " " + i + " " + n);
-
+                        db++;
+                    } else if (i != x && i != n && n != x) {
+                        System.out.println("" + x + i + n);
+                        ismnlkdb++;
                     }
-
                 }
+
             }
         }
-        return false;
-   
+        if (ismetlessel) {
+            System.out.println("az összes permutácio:" + db);
+
+        } else {
+            System.out.println("ism nelkuli osszes permutácio:" + ismnlkdb);
+        }
     }
 }
